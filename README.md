@@ -3,6 +3,9 @@
 Bem-vindo ao meu Study Hub, um repositório criado como parte do Bootcamp I e do Projeto Integrador.  
 Este espaço é dedicado à organização da minha identidade profissional em TI, reunindo materiais acadêmicos, projetos e certificações.
 
+## 🗂 Estrutura de Pastas do Study Hub
+
+```
 Meu_Study_Hub_TI/
 ├── 01_Apresentacao_e_Perfil/
 │   ├── Bibliografia/
@@ -42,5 +45,7 @@ Meu_Study_Hub_TI/
 │   │   └── Projetos_RPA/
 │   │
 │   └── Certificacoes/
+```
+
 
 
