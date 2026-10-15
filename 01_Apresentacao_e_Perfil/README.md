@@ -55,7 +55,7 @@ As versões serão identificadas conforme as alterações efetivamente realizada
 
 **Portfólio:** link do GitHub Pages a ser inserido após a publicação.
 
-Substitua `SEU-USUARIO` pelo seu nome de usuário real no GitHub.
+Substitua `eduvalent3` pelo seu nome de usuário real no GitHub.
 
 ## Autor
 
