@@ -1,9 +1,108 @@
-body {
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #f4f7fb;
-  color: #1e293b;
+
+* {
+    box-sizing: border-box;
 }
-h1 { color: #2563eb; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.7;
+}
+
+.cabecalho {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.cabecalho h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.cabecalho nav {
+    margin-top: 25px;
+}
+
+.cabecalho nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 6px 10px;
+    font-weight: bold;
+}
+
+.cabecalho nav a:hover {
+    color: #93c5fd;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.secao {
+    background-color: white;
+    margin-bottom: 25px;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+.secao h2 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.cartao {
+    background-color: #eff6ff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.cartao h3 {
+    color: #1e40af;
+    margin-top: 0;
+}
+
+.tecnologias {
+    font-weight: bold;
+    color: #1d4ed8;
+}
+
+a {
+    color: #1d4ed8;
+}
+
+footer {
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+@media (max-width: 600px) {
+    .cabecalho h1 {
+        font-size: 32px;
+    }
+
+    .secao {
+        padding: 20px;
+    }
+}
