@@ -1,59 +1,116 @@
-4. Projetos e certificados
-Caminho: 03_Projetos_e_Certificados/README.md
-
-
-markdown
-
 # Projetos e Certificados
 
-## Objetivo
+## Sobre esta seção
 
-Organizar projetos acadêmicos e pessoais e registrar cursos e certificações relacionados ao meu desenvolvimento em Tecnologia da Informação.
+Aqui ficam os projetos que construí, na faculdade e por conta própria, e os cursos e certificações que registram minha formação em Tecnologia da Informação.
+
+Meus projetos se dividem em duas frentes:
+
+- **Aplicativos mobile** feitos com Flutter e Dart.
+- **Automação de processos (RPA)** feita com Power Automate e SQL Server.
 
 ## Estrutura
 
-- `Projetos/`: diretório central dos projetos.
-- `Certificacoes/`: registro de cursos e certificações.
+- `Projetos/`: documentação e código dos projetos.
+  - `Projetos_Mobile/`: aplicativos para dispositivos móveis.
+  - `Projetos_RPA/`: automações de processos.
+- `Certificacoes/`: cursos e certificações concluídos.
+
+## Projetos em destaque
+
+| Projeto | Área | O que faz |
+|---|---|---|
+| Diário de Treino | Mobile | Registra os dias de treino e monta fichas com aparelhos, séries e carga. |
+| Estante de Jogos | Mobile | Estante pessoal de jogos com reviews, comunidade e dados da API da Twitch. |
+| Gerador de Boletos | RPA | Robô que lê dados, grava em SQL Server e gera boletos automaticamente. |
+
+---
+
+## Projetos Mobile
+
+### Diário de Treino (app de academia)
+
+**Problema:** acompanhar a rotina de academia em planilhas ou anotações soltas dificulta ver a evolução.
+
+**O que o app faz:**
+
+- Registra os dias em que o usuário treinou.
+- Monta o treino escolhendo aparelhos e exercícios.
+- Define séries, repetições e carga para cada exercício.
+- Mantém o histórico para acompanhar a evolução ao longo do tempo.
+
+**Tecnologias:** Flutter e Dart, com armazenamento do histórico de treinos em banco de dados (Firebase Cloud Firestore).
+
+**Como executar:**
+
+1. Instale o [Flutter SDK](https://docs.flutter.dev/get-started/install) e confira com `flutter doctor`.
+2. Clone o repositório e entre na pasta do app.
+3. Baixe as dependências: `flutter pub get`
+4. Conecte um celular ou abra um emulador e rode: `flutter run`
+
+**Imagens:** adicione capturas de tela em uma pasta `imagens/` e referencie aqui.
+
+### Estante de Jogos (rede social de games)
+
+**Problema:** reunir em um só lugar os jogos que a pessoa tem, quer jogar ou já zerou, e conversar sobre eles com outras pessoas.
+
+**O que o app faz:**
+
+- Permite adicionar jogos à estante pessoal.
+- Mostra capa, descrição e outras informações obtidas pela API da Twitch (IGDB).
+- Permite escrever reviews, visíveis para a comunidade.
+- Permite seguir outros usuários e acompanhar o que eles jogam e avaliam.
+
+**Tecnologias:** Flutter e Dart, Firebase (Authentication e Cloud Firestore) para contas, reviews e seguidores, e API da Twitch (IGDB) para os dados dos jogos.
+
+**Como executar:**
+
+1. Instale o [Flutter SDK](https://docs.flutter.dev/get-started/install) e confira com `flutter doctor`.
+2. Crie um aplicativo em [dev.twitch.tv](https://dev.twitch.tv/console) para obter o **Client ID** e o **Client Secret** da API.
+3. Guarde essas chaves em um arquivo `.env` (que não vai para o GitHub) ou em variáveis de ambiente.
+4. Baixe as dependências: `flutter pub get`
+5. Rode o app: `flutter run`
+
+**Imagens:** adicione capturas de tela em uma pasta `imagens/` e referencie aqui.
+
+---
+
+## Projetos RPA
+
+### Gerador de Boletos
+
+**Problema:** gerar boletos manualmente é repetitivo e sujeito a erro de digitação, principalmente quando o volume é grande.
+
+**Como funciona:**
+
+1. O robô lê uma planilha Excel com os dados de cada boleto.
+2. Limpa e valida os campos (remoção de caracteres inválidos e validação de datas).
+3. Grava os dados no banco SQL Server.
+4. Cada boleto entra em uma **fila de processamento** com status, tentativas e data de inserção.
+5. O robô processa a fila, gera o boleto no site e guarda o arquivo em **Base64** no banco.
+6. O status de cada item é atualizado ao final, para acompanhar sucessos e erros.
+
+**Ferramentas:** Power Automate Desktop, Power Automate Cloud, SQL Server, Excel, expressões regulares (regex).
+
+**Estrutura do banco:**
+
+- Tabela de dados do boleto.
+- Tabela de fila de processamento.
+- Tabela de armazenamento do boleto em Base64.
+
+**Pontos que trabalhei:**
+
+- Validação de datas dentro do próprio fluxo, enviando `NULL` ao banco quando a data é inválida.
+- Limpeza padronizada de textos com regex antes da gravação.
+- Controle de fila e tratamento de erros.
+
+**Imagens:** adicione prints do fluxo e do banco, sempre com dados fictícios.
+
+---
 
 ## Documentação dos projetos
 
-Sempre que possível, cada projeto deverá apresentar:
-
-- Nome e objetivo.
-- Problema que pretende resolver.
-- Tecnologias utilizadas.
-- Funcionalidades.
-- Instruções de execução.
-- Resultados e aprendizados.
-- Imagens ou demonstrações, quando disponíveis.
-
-## Certificações
-
-Os registros poderão incluir nome do curso, instituição, data de conclusão e link de validação.
-
-## Finalidade
-
-Construir um histórico organizado dos trabalhos realizados e das competências desenvolvidas.
-4.1 Projetos
-Caminho: 03_Projetos_e_Certificados/Projetos/README.md
-
-
-markdown
-
-# Projetos
-
-## Objetivo
-
-Centralizar a documentação dos projetos acadêmicos e pessoais desenvolvidos durante minha trajetória de aprendizagem.
-
-## Categorias
-
-- `Projetos_Mobile/`: aplicações e estudos relacionados a dispositivos móveis.
-- `Projetos_RPA/`: projetos de automação robótica de processos.
-
-## Padrão de documentação
-
-Cada projeto deverá incluir, quando aplicável:
+Cada projeto traz, quando aplicável:
 
 1. Descrição e objetivo.
 2. Tecnologias utilizadas.
@@ -63,244 +120,12 @@ Cada projeto deverá incluir, quando aplicável:
 6. Evidências e resultados.
 7. Melhorias futuras.
 
-## Versionamento
+As alterações de código são registradas com commits claros e objetivos.
 
-As alterações nos arquivos de código poderão ser registradas com commits claros e objetivos.
-Projetos Mobile
-Caminho: 03_Projetos_e_Certificados/Projetos/Projetos_Mobile/README.md
+## Certificações
 
-
-markdown
-
-# Projetos Mobile
-
-## Objetivo
-
-Organizar projetos e estudos relacionados ao desenvolvimento de aplicações móveis.
-
-## Documentação recomendada
-
-Para cada projeto, registrar:
-
-- Nome e finalidade.
-- Plataforma de destino.
-- Linguagem e tecnologias utilizadas.
-- Funcionalidades principais.
-- Requisitos para execução.
-- Instruções de instalação e uso.
-- Capturas de tela, quando disponíveis.
-- Resultados e melhorias planejadas.
-
-## Organização
-
-Cada aplicação poderá ser armazenada em uma subpasta própria, acompanhada de sua documentação.
-Projetos RPA
-Caminho: 03_Projetos_e_Certificados/Projetos/Projetos_RPA/README.md
-
-
-markdown
-
-# Projetos RPA
-
-## Objetivo
-
-Organizar projetos de Automação Robótica de Processos (RPA) desenvolvidos durante os estudos ou em atividades pessoais.
-
-## Documentação recomendada
-
-- Processo que será automatizado.
-- Objetivo e justificativa.
-- Ferramentas utilizadas.
-- Etapas da automação.
-- Entradas e saídas esperadas.
-- Tratamento de erros.
-- Testes e resultados.
-- Limitações e melhorias futuras.
+Os registros incluem nome do curso, instituição, data de conclusão, carga horária e link de validação, quando houver. Entram somente cursos concluídos, separados dos que estão em andamento.
 
 ## Boas práticas
 
-Não incluir credenciais, senhas, tokens ou dados pessoais confidenciais nos arquivos do repositório.
-Certificações
-Caminho: 03_Projetos_e_Certificados/Certificacoes/README.md
-
-
-markdown
-
-# Certificações
-
-## Objetivo
-
-Registrar cursos, certificações e atividades de formação complementar relacionados à minha trajetória acadêmica e profissional.
-
-## Informações recomendadas
-
-Para cada certificação, registrar:
-
-- Nome do curso ou certificação.
-- Instituição emissora.
-- Data de conclusão.
-- Carga horária, quando informada.
-- Principais competências desenvolvidas.
-- Link de validação, quando disponível.
-
-## Organização
-
-Os comprovantes poderão ser organizados em arquivos ou links, respeitando as condições de compartilhamento e a privacidade.
-
-## Observação
-
-Registrar somente cursos concluídos ou certificações efetivamente obtidas, diferenciando-os de cursos em andamento.
-5. Documentação e apresentação
-Caminho: 04_Documentacao_e_Apresentacao/README.md
-
-
-markdown
-
-# Documentação e Apresentação
-
-## Objetivo
-
-Reunir os documentos utilizados no planejamento, no acompanhamento de versões e na apresentação do Study Hub.
-
-## Arquivos
-
-- `planejamento.md`: descreve os objetivos, a estrutura e as etapas do projeto.
-- `historico-de-versoes.md`: registra as principais alterações realizadas.
-- `roteiro-apresentacao.md`: organiza os tópicos da apresentação em vídeo.
-
-## Importância
-
-A documentação permite compreender o propósito do repositório, acompanhar sua evolução e apresentar os resultados de maneira clara.
-5.1 Planejamento
-Caminho: 04_Documentacao_e_Apresentacao/planejamento.md
-
-
-markdown
-
-# Planejamento do Study Hub
-
-## 1. Objetivo geral
-
-Desenvolver um repositório organizado para reunir materiais acadêmicos, projetos, documentação e informações relacionadas à minha trajetória profissional em Tecnologia da Informação.
-
-## 2. Objetivos específicos
-
-- Definir uma estrutura de diretórios.
-- Documentar os conteúdos utilizando Markdown.
-- Praticar o controle de versão com Git.
-- Hospedar os arquivos no GitHub.
-- Desenvolver uma página com HTML e CSS.
-- Publicar o portfólio utilizando GitHub Pages.
-- Compartilhar o projeto em meu perfil profissional.
-
-## 3. Organização
-
-O repositório está dividido em quatro áreas principais: apresentação e perfil, disciplinas atuais, projetos e certificados, e documentação e apresentação.
-
-Os arquivos `index.html` e `assets/style.css` são utilizados na construção da página web.
-
-## 4. Ferramentas
-
-- Git.
-- GitHub.
-- Markdown.
-- HTML5.
-- CSS3.
-- GitHub Pages.
-
-## 5. Etapas de desenvolvimento
-
-1. Planejamento da estrutura.
-2. Organização dos diretórios e arquivos.
-3. Criação e documentação da página web.
-4. Registro das alterações com Git.
-5. Publicação do site.
-6. Integração com o LinkedIn.
-7. Preparação do vídeo e do relatório final.
-
-## 6. Resultado esperado
-
-Obter um repositório documentado e versionado, acompanhado de uma página web pública que apresente minha trajetória acadêmica e meus projetos.
-5.2 Histórico de versões
-Caminho: 04_Documentacao_e_Apresentacao/historico-de-versoes.md
-
-
-markdown
-
-# Histórico de Versões
-
-## Objetivo
-
-Registrar a evolução do Study Hub, identificando as principais alterações realizadas nos arquivos e na estrutura do repositório.
-
-## Histórico
-
-### Versão inicial — Planejamento
-
-- Criação do README inicial.
-- Definição das principais áreas do repositório.
-- Planejamento da organização dos materiais acadêmicos e profissionais.
-
-### Versão 1.0 — Primeira versão do portfólio
-
-Registrar nesta seção a data e as alterações efetivamente realizadas na primeira versão funcional da página web.
-
-### Versão 1.1 — Melhorias
-
-Registrar as atualizações realizadas após a versão 1.0, como melhorias visuais, novos conteúdos e ajustes na documentação.
-
-## Convenção de versionamento
-
-As versões devem corresponder aos estados reais do projeto e, quando utilizadas tags Git, devem ser verificáveis no histórico do repositório.
-
-## Registro de alterações
-
-Para cada nova versão, informar:
-
-- Número ou identificador.
-- Data.
-- Principais alterações.
-- Motivo da atualização.
-5.3 Roteiro da apresentação
-Caminho: 04_Documentacao_e_Apresentacao/roteiro-apresentacao.md
-
-
-markdown
-
-# Roteiro da Apresentação — Study Hub
-
-**Duração prevista:** 5 minutos.
-
-## 1. Introdução — 40 segundos
-
-Apresentar meu nome, o Study Hub e o objetivo do projeto.
-
-## 2. Estrutura do repositório — 50 segundos
-
-Demonstrar a organização dos diretórios e explicar como os materiais acadêmicos, projetos e documentos estão separados.
-
-## 3. Versionamento — 50 segundos
-
-Apresentar o histórico de commits e as versões registradas no Git, explicando como as alterações são documentadas.
-
-## 4. Demonstração do site — 1 minuto e 20 segundos
-
-Abrir a página publicada com GitHub Pages e apresentar as seções, os projetos e os recursos visuais.
-
-## 5. Integração profissional — 40 segundos
-
-Mostrar como o repositório ou o site está divulgado no LinkedIn.
-
-## 6. Conclusão — 40 segundos
-
-Resumir os aprendizados sobre organização, documentação, versionamento e publicação de projetos.
-
-## Preparação
-
-Antes da gravação:
-
-- Conferir os links.
-- Testar o site.
-- Verificar se as versões estão registradas.
-- Preparar as telas que serão demonstradas.
-- Confirmar a duração aproximada da apresentação.
+Não incluir no repositório credenciais, senhas, chaves de API (como as da Twitch), tokens, strings de conexão reais ou dados pessoais de clientes. Use dados fictícios nos exemplos e nas imagens.
